@@ -1,0 +1,6 @@
+{
+  "name": "AI Analytics",
+  "description": "AI-Powered Data Analytics Dashboard with Gemini AI. Analyze CSV, Excel or query structures with Thai natural language queries and dynamic interactive charts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
