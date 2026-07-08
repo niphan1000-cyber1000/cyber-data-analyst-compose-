@@ -5,7 +5,7 @@
 [![Gemini AI](https://img.shields.io/badge/Gemini-3.5%20Flash-orange.svg)](https://ai.google.dev)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](/LICENSE)
 
-**แอปวิเคราะห์ข้อมูลอัจฉริยะด้วย AI** ที่ขับเคลื่อนด้วย **Gemini 3.5 Flash** ออกแบบมาเพื่อให้ผู้ใช้สามารถอัปโหลดข้อมูล สั่งงานและถามคำถามด้วย**ภาษาไทยธรรมชาติ** เพื่อสร้างแผนภูมิแบบ Interactive, KPI Indicators และสรุปบทวิเคราะห์เชิงธุรกิจเชิงลึกได้อย่างสะดวกรวดเร็วบนระบบปฏิบัติการ Android
+**แอปวิเคราะห์ข้อมูลอัจฉริยะด้วย AI** ที่ขับเคลื่อนด้วย **Gemini 3.5 Flash** ออกแบบมาเพื่อให้ผู้ใช้สามารถประมวลผลข้อมูล สั่งงานและถามคำถามด้วย**ภาษาไทยธรรมชาติ** เพื่อสร้างแผนภูมิแบบ Interactive, KPI Indicators และสรุปบทวิเคราะห์เชิงธุรกิจเชิงลึกได้อย่างสะดวกรวดเร็วบนระบบปฏิบัติการ Android
 
 ---
 
@@ -31,7 +31,7 @@
 
 **AI Analytics** คือแอปพลิเคชันต้นแบบ (Prototype Preview) ที่นำความสามารถของ **Generative AI** มาผสานกับแอปพลิเคชันฝั่งมือถือ เพื่อช่วยลดช่องว่างในการทำงานกับข้อมูลขนาดใหญ่:
 - **ภาษาไทยเป็นหลัก**: ผู้ใช้สามารถป้อนคำถามภาษาไทย เช่น *"ยอดขายรวมกลุ่มสมาร์ทโฟนดีกว่าแท็บเล็ตอย่างไร"* หรือ *"สรุปแนวโน้มรายสัปดาห์"*
-- **วิเคราะห์เชิงสถิติแม่นยำ**: การประมวลผลถูกควบคุมด้วย Gemini 3.5 Flash JSON Mode ที่ลดความเพี้ยนของข้อมูล และบังคับการส่งกลับข้อมูลในโครงสร้างตารางและกราฟที่ถูกต้อง 100%
+- **วิเคราะห์เชิงสถิติมั่นคง**: การประมวลผลถูกควบคุมด้วย Gemini 3.5 Flash JSON Mode ที่ช่วยเพิ่มความแม่นยำ ป้องกันการหลุดโครงสร้าง Schema และบังคับการส่งกลับข้อมูลโครงสร้างตารางและกราฟที่ตรงกับชุดคลาสในแอปได้อย่างเสถียรสูง
 - **ทำงานออฟไลน์**: บันทึกข้อมูลและประวัติการวิเคราะห์ลงในฐานข้อมูลภายในเครื่อง (Local SQLite via Room DB)
 
 ---
@@ -57,8 +57,9 @@
 
 ## 📱 ภาพหน้าจอและการทำงาน (Screenshots)
 
-*หมายเหตุ: สามารถจัดเก็บภาพหน้าจอการทำงานจริงไว้ที่โฟลเดอร์ `/screenshots` ภายในโปรเจกต์ของคุณ*
+> 💡 **คำแนะนำผู้พัฒนา**: คุณสามารถนำรูปภาพสกรีนช็อตของแอปพลิเคชันมาวางไว้ในโฟลเดอร์ `/screenshots` และเปิดใช้โค้ด HTML ด้านล่างเพื่อแสดงผลอย่างสวยงามบนหน้า GitHub
 
+<!--
 | **1. แดชบอร์ดสรุปผลรวม (Elegant Dashboard)** | **2. แผนภูมิวิเคราะห์แนวโน้ม (Interactive Charts)** |
 | :---: | :---: |
 | ![Dashboard Dashboard](/screenshots/dashboard_preview.png) <br> *หน้าจอหลักจำลองการรายงาน KPI และความก้าวหน้า* | ![Interactive Chart](/screenshots/chart_preview.png) <br> *แผนภูมิแท่งรายสัปดาห์พร้อมเมนูลัดช่วยเหลือ* |
@@ -66,6 +67,7 @@
 | **3. ประวัติการวิเคราะห์ย้อนหลัง (History Logs)** | **4. การตอบคำถามเชิงลึกจาก AI (AI Thai Prompt)** |
 | :---: | :---: |
 | ![History View](/screenshots/history_preview.png) <br> *ประวัติการวิเคราะห์ทั้งหมด บันทึกถาวรออฟไลน์* | ![AI Insights](/screenshots/ai_insights_preview.png) <br> *วิเคราะห์ภาษาไทยอัจฉริยะพร้อมแนะนำชุดคำสั่ง SQL* |
+-->
 
 ---
 
@@ -95,7 +97,7 @@ graph TD
 ## 🛠️ Tech Stack
 
 - **UI Framework**: Jetpack Compose 1.7+ & Material Design 3 (M3)
-- **AI Core**: Google Gemini 3.5 Flash Model (เรียกผ่าน Retrofit Endpoint ในรูปแบบ JSON Schema บังคับระดับ API)
+- **AI Core**: Google Gemini 3.5 Flash Model (เรียกผ่าน Retrofit Endpoint ในรูปแบบ JSON Schema บังคับระดับ API เพื่อป้องกันความเบี่ยงเบนโครงสร้าง)
 - **Database (Persistence)**: Room Database (SQLite) + Kotlin Flow สำหรับ Real-time Update
 - **Networking**: Retrofit 2 + OkHttp 4 (กำหนด Timeout 60s เพื่อความเสถียร) + Moshi (สำหรับการ Parse JSON ที่ปลอดภัยรวดเร็ว)
 - **Asynchronous Flow**: Kotlin Coroutines & StateFlow / SharedFlow
@@ -112,9 +114,9 @@ graph TD
 - **Gemini API Key** (รับคีย์ของคุณได้ที่ [Google AI Studio](https://aistudio.google.com))
 
 ### ขั้นตอนการรันโปรเจกต์
-1. ทำการ Clone โปรเจกต์ลงเครื่องคอมพิวเตอร์ของคุณ:
+1. ทำการ Clone โปรเจกต์ลงเครื่องคอมพิวเตอร์ของคุณ (แทนที่ `YOUR_GITHUB_USERNAME` ด้วยชื่อผู้ใช้จริงของคุณ):
    ```bash
-   git clone https://github.com/niphan1000/cyber-data-analyst-compose.git
+   git clone https://github.com/YOUR_GITHUB_USERNAME/cyber-data-analyst-compose.git
    cd cyber-data-analyst-compose
    ```
 2. คัดลอกไฟล์ต้นแบบ Environment Variable ไปยังไฟล์ทำงานจริง:
@@ -146,16 +148,16 @@ graph TD
 
 ## 🧪 การทดสอบระบบ (Testing)
 
-คุณสามารถมั่นใจได้ในคุณภาพของโค้ดและการออกแบบผ่านระบบการทดสอบที่รวดเร็วโดยไม่ต้องใช้ Emulator:
+คุณสามารถตรวจสอบคุณภาพของซอร์สโค้ดและทำงานทดสอบระบบได้อย่างรวดเร็วบน JVM โดยไม่ต้องรันเครื่องจำลอง:
 
-### 1. การรัน Unit Tests และ Robolectric Local JVM Tests
-ทดสอบ Logic การทำงาน, การสืบค้นฐานข้อมูล Room และฟังก์ชันวิเคราะห์ระบบของ Repository:
+### 1. การรัน Unit Tests และ Robolectric Tests
+ทดสอบ Logic การทำงาน, การสืบค้นฐานข้อมูล Room และระบบการตอบสนอง:
 ```bash
 gradle :app:testDebugUnitTest
 ```
 
 ### 2. การตรวจสอบหน้าจอด้วย Screenshot Verification (Roborazzi)
-ตรวจสอบว่ามีการแก้ไขที่ส่งผลกระทบต่อดีไซน์เดิม (Visual Regression) หรือไม่:
+ตรวจสอบว่าการแก้ไขส่วนติดต่อผู้ใช้งานใด ๆ ไม่ส่งผลกระทบให้ดีไซน์เดิมคลาดเคลื่อน (Visual Regression):
 ```bash
 gradle :app:verifyRoborazziDebug
 ```
@@ -185,7 +187,7 @@ app/src/main/java/com/example/
 
 - **ฐานข้อมูลจำลอง (Dataset Simulation)**: ฟังก์ชันอัปโหลดไฟล์จริงในเวอร์ชันนี้เป็นการทดสอบความปลอดภัยและการเลือกแม่แบบตาราง (ยังไม่ใช่ตัวดึงไฟล์ดิบเข้า SQLite แบบ Dynamic ทั้งหมด)
 - **การประมวลผลขึ้นอยู่กับการเชื่อมต่ออินเทอร์เน็ต**: ในการเรียกคุยกับ Gemini API เพื่อขอข้อมูลสรุปเชิงลึก จำเป็นต้องใช้งานอินเทอร์เน็ตตลอดเวลา
-- **ความไม่แน่นอนของคำตอบ (Non-deterministic AI)**: ในบางกรณีคำตอบภาษาไทยหรือการเขียน SQL จำลองจาก AI อาจมีความเบี่ยงเบนเล็กน้อย ควรตรวจสอบความถูกต้องก่อนนำไปอ้างอิงเชิงลึก
+- **ความไม่แน่นอนของคำตอบ (Non-deterministic AI)**: แม้จะตั้งค่า JSON Mode บังคับโครงสร้างข้อมูลแล้วก็ตาม ในบางกรณีคำอธิบายคำตอบภาษาไทยหรือคำแนะนำคำสั่ง SQL อาจมีความเบี่ยงเบนเล็กน้อย ควรตรวจสอบความถูกต้องก่อนนำไปอ้างอิงเชิงลึก
 
 ---
 
@@ -220,4 +222,4 @@ app/src/main/java/com/example/
 ---
 
 **พัฒนาขึ้นและบำรุงรักษาโดย ทีมพัฒนา AI Analytics**  
-หากมีข้อสงสัยหรือมีข้อเสนอแนะเพิ่มเติม สามารถรายงานปัญหาได้ที่: [GitHub Issues](https://github.com/niphan1000/cyber-data-analyst-compose/issues)
+หากมีข้อสงสัยหรือมีข้อเสนอแนะเพิ่มเติม สามารถรายงานปัญหาได้ที่: [GitHub Issues](https://github.com/YOUR_GITHUB_USERNAME/cyber-data-analyst-compose/issues)
